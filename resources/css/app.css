@@ -1,0 +1,47 @@
+body {
+    background-color: #EEEFF0;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 20px 6px;
+    padding: 0 10px;
+    width: 100%;
+    height: 50px;
+    background-color: #565A5F;
+    border: 1px #2C2D2E solid;
+    list-style: none;
+    gap: 2rem;
+    color:#EEEFF0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+}
+
+th {
+    font-size: 13px;
+    min-width: 20px;
+    max-width: 55px;
+    overflow: hidden;
+}
+
+td {
+    font-size: 12px;
+    min-width: 20px;
+    max-width: 55px;
+    overflow: hidden;
+}
+
+body {
+    padding-top: 65px; 
+}
+
+.space {
+    max-width: 200px;
+    white-space: nowrap;
+}
