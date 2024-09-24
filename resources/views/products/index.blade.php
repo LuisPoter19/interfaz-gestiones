@@ -9,7 +9,7 @@
     <div class=" container table-responsive prueba">
         <h4>Productos</h4>
         <div class="d-flex justify-content-start my-3">
-            <button class="btn btn-primary">Añadir</button>
+            <button class="btn btn-primary" id="register" name="register">Añadir</button>
         </div>
 
         <table id="articulos" class="table table-striped table-bordered shadow-lg mt-4 text-muted table-hover" style="width:100%">
