@@ -1,0 +1,38 @@
+.placeholder-label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    color: #aaa;
+    pointer-events: none;    
+}
+
+.form-control:focus + .placeholder-label,
+.form-control:not(:placeholder-shown) + .placeholder-label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.85rem;
+    color: black;
+}
+
+.container-register {
+    /* Ajusta el ancho máximo del contenedor principal */
+    /* Asegura que el contenedor principal use el 100% del ancho disponible */
+   /* Centra el contenedor principal horizontalmente */
+   /* Asegura que el contenedor ocupe al menos el 100% de la altura de la vista */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /*border: 10px solid blue;*/
+   max-width: 100%;
+   margin: 0 auto;
+   padding: 0;
+}
+
+.form-register {
+    max-width: 100%; /* Ajusta el ancho máximo del contenedor */
+    /*width: 100%;*/ /* Asegura que el contenedor use el 100% del ancho disponible */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interior del contenedor */ 
+}
