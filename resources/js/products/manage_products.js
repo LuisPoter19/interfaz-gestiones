@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             html: `
                 <h2 class="d-flex">Registro Articulo</h2>
                 <div class="container-fluid">
-                    <form method="POST" action="" id="registerForm" class="form-register">
+                    <form method="POST" action="${window.routes.registerProduct}" id="registerForm" class="form-register">
                         <input type="hidden" name="_token" value="${csrf}">
                         <div class="mb-4 d-flex justify-content-between">
                             <div class="position-relative">
@@ -120,13 +120,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `,
             focusConfirm: false,
+            preConfirm: () => {
+                document.getElementById('registerForm').submit();
+            },
+
             confirmButtonText: 'Registrar',
             showCancelButton: true,
             cancelButtonText: 'Cancelar',
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             width: '900px',
-            height: '800px'
         })
     })
 

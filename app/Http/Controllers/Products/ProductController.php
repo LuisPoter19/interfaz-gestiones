@@ -26,6 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         
     }
 
@@ -34,12 +35,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+
+        $product->codigo_sku = $request->code;
+        $product->nombre = $request->name;
+        $product->descripcion = $request->description;
+        $product->cantidad_inicial = $request->initialAmount;
+        $product->unidad_medida = $request->unit;
+        $product->nivel_minimo_stock = $request->minimumStock;
+        $product->precio_compra = $request->purchasePrice;
+        $product->precio_venta = $request->salePrice;
+        $product->moneda = $request->money;
+        $product->numero_serie = $request->serialNumber;
+        $product->fecha_caducidad = $request->expirationDate;
+        $product->estado = $request->state;
+        $product->cantidad_actual = $request->amountCurrent;
+        $product->category_id = $request->category;
+        $product->supplier_id = $request->supplier;
+
+        $product->save();
+
+        session()->flash('success', 'Producto guardado exitosamente.');
+
+        return redirect('/');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
