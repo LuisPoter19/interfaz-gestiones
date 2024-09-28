@@ -36,3 +36,11 @@
     margin: 0 auto; /* Centra el contenedor horizontalmente */
     padding: 20px; /* Espaciado interior del contenedor */ 
 }
+
+hr.custom-hr {
+    border: none; /* Quitar el borde predeterminado */
+    height: 3px; /* Altura de la línea */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2));/* Degradado de izquierda a derecha */
+    /*background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));*/
+    width: 100%;
+}

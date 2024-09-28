@@ -27,10 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
         Swal.fire({
             title: '',
             html: `
+                <h2 class="d-flex">Registro Articulo</h2>
                 <div class="container-fluid">
                     <form method="POST" action="" id="registerForm" class="form-register">
                         <input type="hidden" name="_token" value="${csrf}">
-                        <div class="mb-1 d-flex justify-content-between">
+                        <div class="mb-4 d-flex justify-content-between">
                             <div class="position-relative">
                                 <input type="text" id="code" name="code" class="form-control" placeholder=" ">
                                 <label for="code" class="placeholder-label">Código</label>
@@ -56,11 +57,70 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <label for="supplier" class="placeholder-label">Proveedor</label>
                             </div>
                         </div>
+                        <hr class="custom-hr">
+
+                        <div class="d-flex justify-content-start mb-4 mt-4">
+                            <div class="position-relative">
+                                <input type="number" id="initialAmount" name="initialAmount" class="form-control" placeholder=" ">
+                                <label for="initialAmount" class="placeholder-label">Cantidad Inicial</label>
+                            </div>
+
+                            <div class="position-relative ms-2">
+                                <input type="text" id="unit" name="unit" class="form-control" placeholder=" ">
+                                <label for="unit" class="placeholder-label">Unidad</label>
+                            </div>
+
+                            <div class="position-relative ms-2">
+                                <input type="number" id="minimumStock" name="minimumStock" class="form-control" placeholder=" ">
+                                <label for="minimumStock" class="placeholder-label">Stock Minimo</label>
+                            </div>
+                        </div>
+                        <hr class="custom-hr">
+
+                        <div class="d-flex justify-content-start mb-4 mt-4">
+                            <div class="position-relative"> 
+                                <input type="number" id="purchasePrice" name="purchasePrice" class="form-control" placeholder=" ">
+                                <label for="purchasePrice" class="placeholder-label">Precio Compra</label>
+                            </div>
+
+                            <div class="position-relative ms-2"> 
+                                <input type="number" id="salePrice" name="salePrice" class="form-control" placeholder=" ">
+                                <label for="salePrice" class="placeholder-label">Precio Venta</label>
+                            </div>
+
+                            <div class="position-relative ms-2"> 
+                                <input type="text" id="money" name="money" class="form-control" placeholder=" ">
+                                <label for="money" class="placeholder-label">Moneda</label>
+                            </div>
+                        </div>
+                        <hr class="custom-hr">
+
+                        <div class="d-flex justify-content-start mt-4">
+                            <div class="position-relative"> 
+                                <input type="text" id="serialNumber" name="serialNumber" class="form-control" placeholder=" ">
+                                <label for="serialNumber" class="placeholder-label">Numero Serie</label>
+                            </div>
+
+                            <div class="position-relative ms-2"> 
+                                <input type="date" id="expirationDate" name="expirationDate" class="form-control" placeholder=" ">
+                                <label for="expirationDate" class="placeholder-label">Fecha Caducidad</label>
+                            </div>
+
+                            <div class="position-relative ms-2"> 
+                                <input type="text" id="state" name="state" class="form-control" placeholder=" ">
+                                <label for="state" class="placeholder-label">Estado</label>
+                            </div>
+
+                            <div class="position-relative ms-2"> 
+                                <input type="number" id="amountCurrent" name="amountCurrent" class="form-control" placeholder=" ">
+                                <label for="amountCurrent" class="placeholder-label">Cantidad Actual</label>
+                            </div>
+                        </div>
                     </form> 
                 </div>
             `,
             focusConfirm: false,
-            confirmButtonText: 'Registrarse',
+            confirmButtonText: 'Registrar',
             showCancelButton: true,
             cancelButtonText: 'Cancelar',
             confirmButtonColor: '#3085d6',
