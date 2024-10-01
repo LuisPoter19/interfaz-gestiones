@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                             <div class="position-relative ms-2">
                                 <textarea id="description" name="description" class="form-control" placeholder=" " rows="1" cols="50"></textarea>
-                                <label for="decription" class="placeholder-label">Descripción</label>
+                                <label for="description" class="placeholder-label">Descripción</label>
                             </div>
 
                             <div class="position-relative ms-2">
@@ -147,8 +147,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         html:`
                             <h2 class="d-flex">Editar Articulo</h2>
                             <div class="container-fluid">
-                            <form method="POST" action="" id="registerForm" class="form-register">
+                            <form method="POST" action="${window.routes.updateProduct.replace(':id', productId)}" id="updateProduct" class="form-register">
                                 <input type="hidden" name="_token" value="${csrf}">
+                                <input type="hidden" name="_method" value="PUT">
                                 <div class="mb-4 d-flex justify-content-between">
                                     <div class="position-relative">
                                         <input type="text" id="code" name="code" class="form-control" placeholder=" " value="${data.codigo_sku}">
@@ -162,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                                     <div class="position-relative ms-2">
                                         <textarea id="description" name="description" class="form-control" placeholder=" " rows="1" cols="50">${data.descripcion}</textarea>
-                                        <label for="decription" class="placeholder-label">Descripción</label>
+                                        <label for="description" class="placeholder-label">Descripción</label>
                                     </div>
 
                                     <div class="position-relative ms-2">
@@ -236,8 +237,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </form> 
                         </div>
-
                         `,
+                        preConfirm: () => {
+                            document.getElementById('updateProduct').submit();
+                        },
 
                         confirmButtonText: 'Confirmar',
                         showCancelButton: true,

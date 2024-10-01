@@ -25,6 +25,7 @@
     <script>
         window.routes = {
             registerProduct: "{{ route('registerProduct')}}",
+            updateProduct: "{{ route('updateProduct', ['id' => ':id']) }}",
         };
     </script>
 
