@@ -54,9 +54,10 @@
                         <td class="space">
                             <form action="">
                                 <!--<a class="btn btn-primary">Editar</a>-->
-                                <a class="bi bi-pencil-fill me-3" title="Editar"></a>
+                                <button type="button" class="bi bi-pencil-fill me-3 btn btn-primary edit-button" title="Editar" data-id="{{ $product->id }}"></button>
+                                
                                 <!--<button type="submit" class="btn btn-danger">Eliminar</button>-->
-                                <a class="bi bi-trash-fill" style="color: red;" title="Eliminar"></a>
+                                <button class="bi bi-trash-fill btn btn-danger" title="Eliminar"></button>
                             </form>                        
                         </td>
                         
