@@ -52,12 +52,14 @@
                         <td>{{ $product->category_id}}</td>
                         <td>{{ $product->supplier_id}}</td>
                         <td class="space">
-                            <form action="">
+                            <form action="{{Route('product.destroy', $product->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
                                 <!--<a class="btn btn-primary">Editar</a>-->
                                 <button type="button" class="bi bi-pencil-fill me-3 btn btn-primary edit-button" title="Editar" data-id="{{ $product->id }}"></button>
                                 
                                 <!--<button type="submit" class="btn btn-danger">Eliminar</button>-->
-                                <button class="bi bi-trash-fill btn btn-danger" title="Eliminar"></button>
+                                <button type="submit" class="bi bi-trash-fill btn btn-danger" title="Eliminar"></button>
                             </form>                        
                         </td>
                         
