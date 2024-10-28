@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
 Use App\Models\Product;
+Use App\Models\Category;
+Use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,13 +13,24 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function getNewProductCode()
+    {
+        $lastProduct = Product::orderBy('id', 'desc')->first();
+        $newCode = 'PROD-' .str_pad(($lastProduct ? $lastProduct->id + 1 : 1), 6, '0', STR_PAD_LEFT);
+
+        return response()->json(['codigo_sku' => $newCode]);
+    }
+
     public function index()
     {
-        $products = Product::all();
+        /*$products = Product::all();
 
-        return view('products.index', ['products' => $products]);
-
-    
+        return view('products.index', ['products' => $products]);*/
+        
+        $products = Product::with(['category', 'supplier'])->get();
+        
+        return view('products.index', compact('products'));
 
     }
 
@@ -36,6 +49,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
+        $category = new Category();
 
         $product->codigo_sku = $request->code;
         $product->nombre = $request->name;
@@ -51,18 +65,20 @@ class ProductController extends Controller
         $product->estado = $request->state;
         $product->cantidad_actual = $request->amountCurrent;
         $product->category_id = $request->category;
+        //$category->
         $product->supplier_id = $request->supplier;
 
         $product->save();
 
         session()->flash('success', 'Producto guardado exitosamente.');
-
-        return redirect('/');
+        
+        return redirect()->route('products.index');
+        
     }
 
     public function show(string $id)
     {
-        //
+        //  
     }
 
     /**
@@ -101,7 +117,7 @@ class ProductController extends Controller
 
         session()->flash('success', 'Producto guardado exitosamente.');
 
-        return redirect('/');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -111,6 +127,6 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        return redirect('/');
+        return redirect()->route('products.index');
     }
 }

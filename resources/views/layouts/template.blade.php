@@ -24,8 +24,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         window.routes = {
-            registerProduct: "{{ route('registerProduct')}}",
-            updateProduct: "{{ route('updateProduct', ['id' => ':id']) }}",
+            registerProduct: "{{ route('product.register') }}",
+            updateProduct: "{{ route('product.update', ['id' => ':id']) }}",
+            getNewProductCode: "{{ route('product.code') }}",
+            getCategories: "{{ route('getCategories') }}",
+            getSuppliers: "{{ route('getSuppliers') }}",
         };
     </script>
 

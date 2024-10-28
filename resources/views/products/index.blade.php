@@ -49,10 +49,10 @@
                         <td>{{ $product->fecha_caducidad}}</td>
                         <td>{{ $product->estado}}</td>
                         <td>{{ $product->cantidad_actual}}</td>
-                        <td>{{ $product->category_id}}</td>
-                        <td>{{ $product->supplier_id}}</td>
+                        <td>{{ $product->category->nombre}}</td>
+                        <td>{{ $product->supplier->nombre}}</td>
                         <td class="space">
-                            <form action="{{Route('product.destroy', $product->id)}}" method="POST">
+                            <form action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <!--<a class="btn btn-primary">Editar</a>-->
