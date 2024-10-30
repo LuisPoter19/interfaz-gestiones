@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 const fieldsToValidate = [
     'code', 'name', 'category', 'supplier', 
     'initialAmount', 'unit', 'minimumStock', 
-    'purchasePrice', 'salePrice', 'money', 
+    'purchasePrice', 'salePrice', 'coin', 
     'serialNumber', 'state', 'amountCurrent'
 ];
 
@@ -51,4 +51,20 @@ export function emptyField(value) {
 export function validateName(value) {
     return value !== "" && value.length >= 2 && value.length <= 30;
 }
+
+export function validateInputs(value, maximumCharacters) {
+    const initialAmount = document.getElementById(value);
+    initialAmount.addEventListener('input', function () {
+        // Limitar caracteres
+        if (this.value.length > maximumCharacters) {
+            this.value = this.value.slice(0, maximumCharacters);
+        }
+
+        // Evitar ingresar números negativos y signos
+        if (this.value <= 0 || this.value == '-' || this.value =='+') {
+            this.value = '';
+        }
+    });
+}
+
 

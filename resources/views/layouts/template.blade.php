@@ -29,6 +29,7 @@
             getNewProductCode: "{{ route('product.code') }}",
             getCategories: "{{ route('getCategories') }}",
             getSuppliers: "{{ route('getSuppliers') }}",
+            getCoins: "{{ route('getCoins') }}",
         };
     </script>
 

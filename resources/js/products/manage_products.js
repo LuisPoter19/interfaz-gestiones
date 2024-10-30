@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2';
-import { validateField, validateFieldsAndSubmit,validateName, emptyField } from '../validations/validations';
+import { validateField, validateFieldsAndSubmit,validateName, emptyField, validateInputs } from '../validations/validations';
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -49,9 +49,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             .then(suppliers => {
                                 let supplierOptions = '<option value="">Selecciona</option>';
                                 suppliers.forEach(supplier => {
-                                    const selectedSupplier = data.supplier_id == supplier.id ? 'selectedSupplier' : '';
+                                    const selectedSupplier = data.supplier_id == supplier.id ? 'selected' : '';
                                     supplierOptions += `<option value="${supplier.id}" ${selectedSupplier}>${supplier.nombre}</option>`;
                                 })
+
+                                fetch(window.routes.getCoins)
+                                .then(response => response.json())
+                                .then(coins => {
+                                    let coinOptions = '<option value="">Selecciona</option>';
+                                    coins.forEach(coin => {
+                                        const selectedCoin = data.coin_id == coin.id ? 'selected' : '';
+                                        coinOptions += `<option value="${coin.id}" ${selectedCoin}>${coin.abreviatura_moneda}</option>`;
+                                    })
 
                                 Swal.fire({
                                     title: '',
@@ -110,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                     </div>
                         
                                                     <div class="position-relative ms-2">
-                                                        <input type="text" id="unit" name="unit" class="form-control" placeholder=" ">
+                                                        <input type="text" id="unit" name="unit" class="form-control" placeholder=" " maxlength="20">
                                                         <label for="unit" class="placeholder-label">Unidad *</label>
                                                     </div>
                         
@@ -133,15 +142,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                                     </div>
                         
                                                     <div class="position-relative ms-2"> 
-                                                        <input type="text" id="money" name="money" class="form-control" placeholder=" ">
-                                                        <label for="money" class="placeholder-label">Moneda *</label>
+                                                        <select id="coin" name="coin" class="form-select">
+                                                                ${coinOptions}
+                                                            </select>
+                                                            <label for="coin" class="placeholder-label">Moneda *</label>
+                                                
+                                                        <!--<input type="text" id="money" name="money" class="form-control" placeholder=" ">
+                                                        <label for="money" class="placeholder-label">Moneda *</label>-->
                                                     </div>
                                                 </div>
                                                 <hr class="custom-hr">
                         
                                                 <div class="d-flex justify-content-start mt-4">
                                                     <div class="position-relative"> 
-                                                        <input type="text" id="serialNumber" name="serialNumber" class="form-control" placeholder=" ">
+                                                        <input type="text" id="serialNumber" name="serialNumber" class="form-control" placeholder=" " maxlength="30">
                                                         <label for="serialNumber" class="placeholder-label">Numero Serie *</label>
                                                     </div>
                         
@@ -179,20 +193,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     
                         })
+                        validateInputs('initialAmount', 4);
+                        validateInputs('minimumStock', 4);
+                        validateInputs('purchasePrice', 7);
+                        validateInputs('salePrice', 7);
 
-                    validateField('code', emptyField);
-                    validateField('name', validateName);
-                    validateField('category', emptyField);
-                    validateField('supplier', emptyField);
-                    validateField('initialAmount', emptyField);
-                    validateField('unit', emptyField);
-                    validateField('minimumStock', emptyField);
-                    validateField('purchasePrice', emptyField);
-                    validateField('salePrice', emptyField);
-                    validateField('money', emptyField);
-                    validateField('serialNumber', emptyField);
-                    validateField('state', emptyField);
-                    validateField('amountCurrent', emptyField);
+                        validateField('code', emptyField);
+                        validateField('name', validateName);
+                        validateField('category', emptyField);
+                        validateField('supplier', emptyField);
+                        validateField('initialAmount', emptyField);
+                        validateField('unit', emptyField);
+                        validateField('minimumStock', emptyField);
+                        validateField('purchasePrice', emptyField);
+                        validateField('salePrice', emptyField);
+                        validateField('coin', emptyField);
+                        validateField('serialNumber', emptyField);
+                        validateField('state', emptyField);
+                        validateField('amountCurrent', emptyField);
+
+                        })
 
                     })
 

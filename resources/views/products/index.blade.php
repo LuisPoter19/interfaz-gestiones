@@ -44,13 +44,14 @@
                         <td>{{ $product->nivel_minimo_stock}}</td>
                         <td>{{ $product->precio_compra}}</td>
                         <td>{{ $product->precio_venta}}</td>
-                        <td>{{ $product->moneda}}</td>
+                        <td>{{ $product->coin->abreviatura_moneda}}</td>
                         <td>{{ $product->numero_serie}}</td>
                         <td>{{ $product->fecha_caducidad}}</td>
                         <td>{{ $product->estado}}</td>
                         <td>{{ $product->cantidad_actual}}</td>
                         <td>{{ $product->category->nombre}}</td>
                         <td>{{ $product->supplier->nombre}}</td>
+                        
                         <td class="space">
                             <form action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
                                 @csrf

@@ -36,4 +36,10 @@ class Product extends Model
      {
         return $this->belongsTo(Supplier::class);
      }
+
+     public function coin()
+     {
+        return $this->belongsTo(Coin::class);
+     }
 }
+

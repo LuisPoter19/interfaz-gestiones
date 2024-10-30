@@ -28,7 +28,7 @@ class ProductController extends Controller
 
         return view('products.index', ['products' => $products]);*/
         
-        $products = Product::with(['category', 'supplier'])->get();
+        $products = Product::with(['category', 'supplier', 'coin'])->get();
         
         return view('products.index', compact('products'));
 
@@ -49,7 +49,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
-        $category = new Category();
 
         $product->codigo_sku = $request->code;
         $product->nombre = $request->name;
@@ -59,14 +58,14 @@ class ProductController extends Controller
         $product->nivel_minimo_stock = $request->minimumStock;
         $product->precio_compra = $request->purchasePrice;
         $product->precio_venta = $request->salePrice;
-        $product->moneda = $request->money;
+        //$product->moneda = $request->money;
         $product->numero_serie = $request->serialNumber;
         $product->fecha_caducidad = $request->expirationDate;
         $product->estado = $request->state;
         $product->cantidad_actual = $request->amountCurrent;
         $product->category_id = $request->category;
-        //$category->
         $product->supplier_id = $request->supplier;
+        $product->coin_id = $request->coin;
 
         $product->save();
 
@@ -112,6 +111,7 @@ class ProductController extends Controller
         $product->cantidad_actual = $request->amountCurrent;
         $product->category_id = $request->category;
         $product->supplier_id = $request->supplier;
+        $product->coin_id = $request->coin;
 
         $product->save();
 

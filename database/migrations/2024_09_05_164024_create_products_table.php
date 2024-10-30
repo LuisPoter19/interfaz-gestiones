@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('nivel_minimo_stock');
             $table->decimal('precio_compra');
             $table->decimal('precio_venta')->nullable();
-            $table->string('moneda');
             $table->string('numero_serie');
             $table->date('fecha_caducidad')->nullable();
             $table->enum('estado', ['disponible', 'agotado', 'pendiente', 'inactivo'])->default('disponible');
@@ -30,6 +29,8 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('supplier_id');
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
+            /*$table->unsignedBigInteger('coin_id');
+            $table->foreign('coin_id')->references('id')->on('coins')->onDelete('cascade');*/
             $table->timestamps();
         });
     }
