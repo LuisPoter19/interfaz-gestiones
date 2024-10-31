@@ -47,7 +47,7 @@
                         <td>{{ $product->coin->abreviatura_moneda}}</td>
                         <td>{{ $product->numero_serie}}</td>
                         <td>{{ $product->fecha_caducidad}}</td>
-                        <td>{{ $product->estado}}</td>
+                        <td>{{ $product->state->estados}}</td>
                         <td>{{ $product->cantidad_actual}}</td>
                         <td>{{ $product->category->nombre}}</td>
                         <td>{{ $product->supplier->nombre}}</td>

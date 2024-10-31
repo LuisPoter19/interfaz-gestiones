@@ -62,6 +62,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                         coinOptions += `<option value="${coin.id}" ${selectedCoin}>${coin.abreviatura_moneda}</option>`;
                                     })
 
+                                    fetch(window.routes.getStates)
+                                    .then(response => response.json())
+                                    .then(states => {
+                                        let stateOptions = '<option value="">Selecciona</option>';
+                                        states.forEach(state => {
+                                            const selectedState = data.state_id == state.id ? 'selected' : '';
+                                            stateOptions += `<option value="${state.id}" ${selectedState}>${state.estados}</option>`;
+                                        })
+
                                 Swal.fire({
                                     title: '',
                                     html: `
@@ -165,8 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                                     </div>
                         
                                                     <div class="position-relative ms-2"> 
-                                                        <input type="text" id="state" name="state" class="form-control" placeholder=" ">
-                                                        <label for="state" class="placeholder-label">Estado *</label>
+                                                        <select id="state" name="state" class="form-select">
+                                                                ${stateOptions}
+                                                            </select>
+                                                            <label for="state" class="placeholder-label">Estado *</label>
+                                                        <!--<input type="text" id="state" name="state" class="form-control" placeholder=" ">
+                                                        <label for="state" class="placeholder-label">Estado *</label>-->
                                                     </div>
                         
                                                     <div class="position-relative ms-2"> 
@@ -189,28 +202,27 @@ document.addEventListener('DOMContentLoaded', function() {
                                     cancelButtonColor: '#d33',
                                     width: '900px',
                     
-                    
-                    
-                    
-                        })
-                        validateInputs('initialAmount', 4);
-                        validateInputs('minimumStock', 4);
-                        validateInputs('purchasePrice', 7);
-                        validateInputs('salePrice', 7);
+                            })
 
-                        validateField('code', emptyField);
-                        validateField('name', validateName);
-                        validateField('category', emptyField);
-                        validateField('supplier', emptyField);
-                        validateField('initialAmount', emptyField);
-                        validateField('unit', emptyField);
-                        validateField('minimumStock', emptyField);
-                        validateField('purchasePrice', emptyField);
-                        validateField('salePrice', emptyField);
-                        validateField('coin', emptyField);
-                        validateField('serialNumber', emptyField);
-                        validateField('state', emptyField);
-                        validateField('amountCurrent', emptyField);
+                            validateInputs('initialAmount', 4);
+                            validateInputs('minimumStock', 4);
+                            validateInputs('purchasePrice', 7);
+                            validateInputs('salePrice', 7);
+
+                            validateField('code', emptyField);
+                            validateField('name', validateName);
+                            validateField('category', emptyField);
+                            validateField('supplier', emptyField);
+                            validateField('initialAmount', emptyField);
+                            validateField('unit', emptyField);
+                            validateField('minimumStock', emptyField);
+                            validateField('purchasePrice', emptyField);
+                            validateField('salePrice', emptyField);
+                            validateField('coin', emptyField);
+                            validateField('serialNumber', emptyField);
+                            validateField('state', emptyField);
+                            validateField('amountCurrent', emptyField);
+                            })
 
                         })
 

@@ -30,6 +30,7 @@
             getCategories: "{{ route('getCategories') }}",
             getSuppliers: "{{ route('getSuppliers') }}",
             getCoins: "{{ route('getCoins') }}",
+            getStates: "{{ route('getStates') }}",
         };
     </script>
 

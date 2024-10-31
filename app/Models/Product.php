@@ -41,5 +41,10 @@ class Product extends Model
      {
         return $this->belongsTo(Coin::class);
      }
+
+     public function state()
+     {
+        return $this->belongsTo(State::class);
+     }
 }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 Use App\Models\Product;
 Use App\Models\Category;
 Use App\Models\Supplier;
+Use App\Models\State;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -23,15 +24,10 @@ class ProductController extends Controller
     }
 
     public function index()
-    {
-        /*$products = Product::all();
-
-        return view('products.index', ['products' => $products]);*/
-        
-        $products = Product::with(['category', 'supplier', 'coin'])->get();
+    {     
+        $products = Product::with(['category', 'supplier', 'coin', 'state'])->get();
         
         return view('products.index', compact('products'));
-
     }
 
     /**
@@ -61,11 +57,12 @@ class ProductController extends Controller
         //$product->moneda = $request->money;
         $product->numero_serie = $request->serialNumber;
         $product->fecha_caducidad = $request->expirationDate;
-        $product->estado = $request->state;
+        //$product->estado = $request->state;
         $product->cantidad_actual = $request->amountCurrent;
         $product->category_id = $request->category;
         $product->supplier_id = $request->supplier;
         $product->coin_id = $request->coin;
+        $product->state_id = $request->state;
 
         $product->save();
 
