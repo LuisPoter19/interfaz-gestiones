@@ -78,42 +78,41 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <div class="container-fluid">
                                             <form method="POST" action="${window.routes.registerProduct}" id="registerForm" class="form-register">
                                                 <input type="hidden" name="_token" value="${csrf}">
-                                                <div class="mb-4 d-flex justify-content-between">
-                                                    <div class="position-relative">
+                                                <div class="mb-4 d-flex justify-content-start">
+                                                    <div class="position-relative col-md-3">
                                                         <input type="text" id="code" name="code" class="form-control" value=${generatedCode} readonly placeholder=" ">
                                                         <label for="code" class="placeholder-label">Código *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2">
+                                                    <div class="position-relative ms-2 col-md-3">
                                                         <span class="error-message" id="name-error"></span>
                                                         <input type="text" id="name" name="name" class="form-control" placeholder=" " minlength="2" maxlength="30">
                                                         <label for="name" class="placeholder-label">Nombre *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2">
+                                                    <div class="position-relative ms-2 col-md-4">
                                                         <textarea id="description" name="description" class="form-control" placeholder=" " rows="1" cols="45"></textarea>
                                                         <label for="description" class="placeholder-label">Descripción</label>
                                                     </div>
-                        
-                                                    <div class="position-relative ms-2">
+                                                </div>
+                                                <hr class="custom-hr">
+
+                                                <div class="d-flex justify-content-start mt-4">
+                                                    <div class="position-relative ms-2 col-md-3">
                                                         <select id="category" name="category" class="form-select">
                                                                 ${categoryOptions}
                                                             </select>
                                                             <label for="category" class="placeholder-label">Categoria *</label>
 
-
-
                                                         <!--<input type="text" id="category" name="category" class="form-control" placeholder=" ">
                                                         <label for="category" class="placeholder-label">Categoria *</label>-->
                                                     </div>
                         
-                                                    <div class="position-relative ms-2">
+                                                    <div class="position-relative ms-2 col-md-3">
                                                         <select id="supplier" name="supplier" class="form-select">
                                                                 ${supplierOptions}
                                                             </select>
                                                             <label for="supplier" class="placeholder-label">Proveedor *</label>
-
-
 
                                                         <!--<input type="text" id="supplier" name="supplier" class="form-control" placeholder=" ">
                                                         <label for="supplier" class="placeholder-label">Proveedor *</label>-->
@@ -122,17 +121,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <hr class="custom-hr">
                         
                                                 <div class="d-flex justify-content-start mb-4 mt-4">
-                                                    <div class="position-relative w-40">
+                                                    <div class="position-relative w-40 col-md-3">
                                                         <input type="number" id="initialAmount" name="initialAmount" class="form-control" placeholder=" ">
                                                         <label for="initialAmount" class="placeholder-label">Cantidad Inicial *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2">
+                                                    <div class="position-relative ms-2 col-md-3">
                                                         <input type="text" id="unit" name="unit" class="form-control" placeholder=" " maxlength="20">
                                                         <label for="unit" class="placeholder-label">Unidad *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2">
+                                                    <div class="position-relative ms-2 col-md-3">
                                                         <input type="number" id="minimumStock" name="minimumStock" class="form-control" placeholder=" ">
                                                         <label for="minimumStock" class="placeholder-label">Stock Minimo *</label>
                                                     </div>
@@ -140,17 +139,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <hr class="custom-hr">
                         
                                                 <div class="d-flex justify-content-start mb-4 mt-4">
-                                                    <div class="position-relative"> 
+                                                    <div class="position-relative col-md-3"> 
                                                         <input type="number" id="purchasePrice" name="purchasePrice" class="form-control" placeholder=" ">
                                                         <label for="purchasePrice" class="placeholder-label">Precio Compra *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2"> 
+                                                    <div class="position-relative ms-2 col-md-3"> 
                                                         <input type="number" id="salePrice" name="salePrice" class="form-control" placeholder=" ">
                                                         <label for="salePrice" class="placeholder-label">Precio Venta *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2"> 
+                                                    <div class="position-relative ms-2 col-md-3"> 
                                                         <select id="coin" name="coin" class="form-select">
                                                                 ${coinOptions}
                                                             </select>
@@ -163,17 +162,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <hr class="custom-hr">
                         
                                                 <div class="d-flex justify-content-start mt-4">
-                                                    <div class="position-relative"> 
+                                                    <div class="position-relative col-md-3"> 
                                                         <input type="text" id="serialNumber" name="serialNumber" class="form-control" placeholder=" " maxlength="30">
                                                         <label for="serialNumber" class="placeholder-label">Numero Serie *</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2"> 
+                                                    <div class="position-relative ms-2 col-md-3"> 
                                                         <input type="date" id="expirationDate" name="expirationDate" class="form-control" placeholder=" ">
                                                         <label for="expirationDate" class="placeholder-label">Fecha Caducidad</label>
                                                     </div>
                         
-                                                    <div class="position-relative ms-2"> 
+                                                    <div class="position-relative ms-2 col-md-3"> 
                                                         <select id="state" name="state" class="form-select">
                                                                 ${stateOptions}
                                                             </select>
@@ -182,10 +181,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                                         <label for="state" class="placeholder-label">Estado *</label>-->
                                                     </div>
                         
-                                                    <div class="position-relative ms-2"> 
+                                                    <!--<div class="position-relative ms-2"> 
                                                         <input type="number" id="amountCurrent" name="amountCurrent" class="form-control" placeholder=" ">
                                                         <label for="amountCurrent" class="placeholder-label">Cantidad Actual *</label>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                             </form> 
                                         </div>

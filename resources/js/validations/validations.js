@@ -4,7 +4,7 @@ const fieldsToValidate = [
     'code', 'name', 'category', 'supplier', 
     'initialAmount', 'unit', 'minimumStock', 
     'purchasePrice', 'salePrice', 'coin', 
-    'serialNumber', 'state', 'amountCurrent'
+    'serialNumber', 'state'
 ];
 
 // Función de validación genérica

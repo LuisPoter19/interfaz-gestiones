@@ -58,7 +58,7 @@ class ProductController extends Controller
         $product->numero_serie = $request->serialNumber;
         $product->fecha_caducidad = $request->expirationDate;
         //$product->estado = $request->state;
-        $product->cantidad_actual = $request->amountCurrent;
+        //$product->cantidad_actual = $request->amountCurrent;
         $product->category_id = $request->category;
         $product->supplier_id = $request->supplier;
         $product->coin_id = $request->coin;
@@ -105,7 +105,7 @@ class ProductController extends Controller
         $product->numero_serie = $request->serialNumber;
         $product->fecha_caducidad = $request->expirationDate;
         $product->estado = $request->state;
-        $product->cantidad_actual = $request->amountCurrent;
+        //$product->cantidad_actual = $request->amountCurrent;
         $product->category_id = $request->category;
         $product->supplier_id = $request->supplier;
         $product->coin_id = $request->coin;
